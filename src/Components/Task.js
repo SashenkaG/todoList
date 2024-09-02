@@ -5,17 +5,6 @@ export const Task = (props) => {
   const [task,setTask] = useState();
   const [taskItems, setTaskItems] = useState([]);
 
-  const handleAddTask = () =>{
-    Keyboard.dismiss();
-    setTaskItems([...taskItems,task])
-    setTask(null);
-  }
-
-  const completeTsk = (index) =>{
-    let itemsCopy = [...taskItems];
-    itemsCopy.splice;(index, 1);
-    setTaskItems(itemsCopy);
-  }
   return (
     <View style={styles.item}>
       <View style={styles.itemLeft}>

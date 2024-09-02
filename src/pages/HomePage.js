@@ -9,10 +9,9 @@ export const HomePage = () => {
   const handleAddTask = () => {
       if (task) {
           setTaskItems([...taskItems, task]);
-          setTask('');
+          setTask('');c
       }
   };
-
   const completeTask = (index) => {
       let itemsCopy = [...taskItems];
       itemsCopy.splice(index, 1);
