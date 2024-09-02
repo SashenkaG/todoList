@@ -1,34 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { Task } from '../src/Components/Task'; 
 
 export const HomePage = () => {
+  const [task, setTask] = useState('');
+  const [taskItems, setTaskItems] = useState([]);
+
+  const handleAddTask = () => {
+      if (task) {
+          setTaskItems([...taskItems, task]);
+          setTask('');
+      }
+  };
+
+  const completeTask = (index) => {
+      let itemsCopy = [...taskItems];
+      itemsCopy.splice(index, 1);
+      setTaskItems(itemsCopy);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.tasksWrapper}>
         <Text style={styles.sectionTitle}>Today's Tasks</Text>
         <View style={styles.items}>
             {
-                taskItems.map((item, index) =>{
-                    return (
-                        <TouchableOpacity key={index} onPress={()=> completeTask(index)}>
-                             <Task text={item}/>
-                        </TouchableOpacity>
-                    ) 
-                })
+                taskItems.map((item, index) => (
+                    <TouchableOpacity key={index} onPress={() => completeTask(index)}>
+                         <Task text={item}/>
+                    </TouchableOpacity>
+                ))
             }
         </View>
       </View>
 
-      {/*write a task*/}
+      {/* Write a Task */}
 
       <KeyboardAvoidingView
         behavior={Platform.OS === "android" ? "padding" : "height"}
         style= {styles.writeTaskWrapper}
         >
-            <TextInput style={styles.input} placeholder={'Write a Task'} value={task} onChangeText={task =>setTask(test)}/>
+            <TextInput 
+              style={styles.input} 
+              placeholder={'Write a Task'} 
+              value={task} 
+              onChangeText={task => setTask(task)}
+            />
 
-            <TouchableOpacity onPress={() => handleAddTask}>
+            <TouchableOpacity onPress={handleAddTask}>
                 <View style={styles.addWrapper}>
                     <Text style={styles.addText}> +</Text>
                 </View>
@@ -36,7 +55,7 @@ export const HomePage = () => {
         </KeyboardAvoidingView>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
