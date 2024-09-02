@@ -2,9 +2,6 @@ import React, {useState} from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 export const Task = (props) => {
-  const [task,setTask] = useState();
-  const [taskItems, setTaskItems] = useState([]);
-
   return (
     <View style={styles.item}>
       <View style={styles.itemLeft}>

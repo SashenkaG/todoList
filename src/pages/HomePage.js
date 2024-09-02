@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { Task } from '../src/Components/Task'; 
+import { KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Task } from '../Components/Task'; 
 
 export const HomePage = () => {
   const [task, setTask] = useState('');
@@ -9,7 +9,7 @@ export const HomePage = () => {
   const handleAddTask = () => {
       if (task) {
           setTaskItems([...taskItems, task]);
-          setTask('');c
+          setTask('');
       }
   };
   const completeTask = (index) => {
@@ -48,7 +48,7 @@ export const HomePage = () => {
 
             <TouchableOpacity onPress={handleAddTask}>
                 <View style={styles.addWrapper}>
-                    <Text style={styles.addText}> +</Text>
+                    <Text style={styles.addText}> + </Text>
                 </View>
             </TouchableOpacity>
         </KeyboardAvoidingView>
@@ -57,46 +57,51 @@ export const HomePage = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#E8EAED',
-  },
-  tasksWrapper: {
-    paddingTop: 80,
-    paddingHorizontal: 20,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
-  items: {
-    marginTop: 30,
-  },
-  writeTaskWrapper:{
-    position: 'absolute',
-    bottom: 60,
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-  },
-  input:{
-    paddingVertical:15,
-    paddingHorizontal: 15,
-    backgroundColor: '#FFF',
-    borderRadius: 60,
-    borderColor: '#C0C0C0',
-    width: 250,
-
-  },
-  addWrapper:{
-    width: 60,
-    height: 60,
-    backgroundColor: '#FFF',
-    borderRadius:60 ,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 1
-  },
-  addText:{},
-});
+    container: {
+      flex: 1,
+      backgroundColor: '#E8EAED',
+    },
+    tasksWrapper: {
+      paddingTop: 80,
+      paddingLeft: 100,
+      paddingHorizontal: 20, 
+    },
+    sectionTitle: {
+      fontSize: 24,
+      fontWeight: 'bold',
+    },
+    items: {
+      marginTop: 30,
+    },
+    writeTaskWrapper: {
+      position: 'absolute',
+      bottom: 60,
+      width: '100%',
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingHorizontal: 20, 
+      paddingBottom: 10, 
+    },
+    input: {
+      flex: 1, 
+      paddingVertical: 15,
+      paddingHorizontal: 20,
+      backgroundColor: '#FFF',
+      borderRadius: 60,
+      borderColor: '#C0C0C0',
+      borderWidth: 1,
+      marginRight: 10, 
+    },
+    addWrapper: {
+      width: 60,
+      height: 60,
+      backgroundColor: '#FFF',
+      borderRadius: 60,
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingRight: 20,
+      borderWidth: 1,
+    },
+    addText: {},
+  });
+  
