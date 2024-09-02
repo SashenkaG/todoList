@@ -63,7 +63,6 @@ const styles = StyleSheet.create({
     },
     tasksWrapper: {
       paddingTop: 80,
-      paddingLeft: 100,
       paddingHorizontal: 20, 
     },
     sectionTitle: {
@@ -81,11 +80,12 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       paddingHorizontal: 20, 
       paddingBottom: 10, 
+      paddingLeft: '5%',
     },
     input: {
       flex: 1, 
       paddingVertical: 15,
-      paddingHorizontal: 20,
+      paddingHorizontal: 10,
       backgroundColor: '#FFF',
       borderRadius: 60,
       borderColor: '#C0C0C0',
@@ -99,7 +99,6 @@ const styles = StyleSheet.create({
       borderRadius: 60,
       justifyContent: 'center',
       alignItems: 'center',
-      paddingRight: 20,
       borderWidth: 1,
     },
     addText: {},
